@@ -1,0 +1,22 @@
+# Optional for substantial work. Reuse equivalent existing project records.
+mode: infer_from_request
+study_type: infer_from_materials
+current_baseline: unspecified
+target_journal_full_name: unspecified
+article_type: unspecified
+output_language: infer_from_request
+requested_artifact_formats: []
+central_question: unspecified
+primary_contribution: unspecified
+readiness: unassessed
+evidence_sources: []
+editable_scope: []
+protected_items: []
+author_deletions_to_preserve: []
+later_author_exceptions: []
+live_queries: []
+requested_components: []
+tracking_baseline: not_requested
+parameter_display_changes_allowed: false
+available_capabilities: []
+notes: "Do not inherit another project's language, figure counts, sample sizes or deployment status."

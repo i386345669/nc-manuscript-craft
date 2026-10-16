@@ -1,0 +1,44 @@
+# 大任务的最小续接状态。只填当前任务需要的字段，不以完整填表代替实际写作。
+schema_version: 1
+updated_at: null
+task:
+  mode: full_manuscript
+  requested_outcome: null
+  research_type: []
+  article_type: null
+  target_journal_full_name: null
+  language: infer_from_request
+  requested_formats: []
+  editable_scope: []
+  protected_items: []
+  author_decisions: []
+  author_deletions_to_preserve: []
+argument:
+  central_question: null
+  primary_contribution: null
+  claim_boundaries: []
+material_readiness: not_assessed
+# 每个source记录实际位置、版本或可核对日期、已读范围与状态。
+sources: []
+records:
+  evidence_ledger: null
+  deliverable_matrix: null
+  terminology: null
+  figure_number_mapping: null
+  citation_support: null
+  change_log: null
+progress:
+  completed_components: []
+  current_components: []
+  pending_components: []
+  components_needing_recheck: []
+# 每个query记录ID、具体未知、影响的组件和最小所需事实。
+open_queries: []
+# 仅列实际写出的文件或文本位置。
+artifacts: []
+verification:
+  completed_checks: []
+  pending_checks: []
+  unavailable_capabilities: []
+current_status: in_progress
+next_action: null

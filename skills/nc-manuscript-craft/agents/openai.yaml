@@ -1,0 +1,4 @@
+interface:
+  display_name: "NC Manuscript Craft"
+  short_description: "从真实材料完成论文或定向精修，保护科学含义并核对图文、引用与所需语言"
+  default_prompt: "Use $nc-manuscript-craft to complete the requested manuscript-writing task from my supplied evidence, preserving scientific meaning and author decisions."

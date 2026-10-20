@@ -1,53 +1,82 @@
-# NC Manuscript Craft 中文说明
+# NC Manuscript Craft
 
-这套技能用于根据真实研究材料完成论文写作，或对成熟稿做有范围的精修。默认以具体贡献、证据和作者判断组织文本，避免流水账、重复自辩和机械模板。
+v1.1.0
 
-## 安装到 Codex
+[English](README.md) · [完整写作 Prompt](FINAL_PROMPT_ZH.md) · [技能入口](skills/nc-manuscript-craft/SKILL.md)
 
-在 Codex 对话中发送：
+这是一套用于科研论文写作的技能，帮助你把研究材料组织成清楚的中心论证，完成各个章节，并对成熟稿做有针对性的修订。写作围绕研究实际发现、读者需要理解的问题，以及作者希望保留的判断展开。
+
+可以用它从材料起草全稿，修改一段解释不够充分的 Discussion，或同步正文、图注和补充材料中的相关变化。详细指令使用中文，稿件语言由你的任务要求决定。
+
+## 开始使用
+
+在 Codex 中发送：
 
 ```text
 $skill-installer
 请安装 https://github.com/i386345669/nc-manuscript-craft/tree/main/skills/nc-manuscript-craft
 ```
 
-安装入口位于`skills/nc-manuscript-craft`。下一轮可直接调用`$nc-manuscript-craft`。已有同名技能时先备份，按明确更新操作处理。需要固定版本时，将链接中的`main`替换为已发布的版本标签或提交号。
+安装后，在新一轮对话中附上材料并说明写作任务：
 
 ```text
-请使用 $nc-manuscript-craft，根据我提供的结果、方法、图表和参考资料完成英文论文全文。
-先确定中心问题和证据关系，然后持续完成全部有依据的章节及一致性检查，不停在提纲。
-数据或声明缺项要准确列出，不编造结果。只交付英文，不额外翻译或制作投稿信。
+请使用 $nc-manuscript-craft，根据这些结果、方法、图表和参考资料完成英文论文。
+确定中心论证，完成材料所支持的各个章节。
+准确保留研究定义、结果与引文，将需要补充的事实单独列出。
 材料：【文件或正文】
 ```
 
-## 不安装也能使用
+也可以将 [FINAL_PROMPT_ZH.md](FINAL_PROMPT_ZH.md) 整体复制给助手，再附上研究材料。这个文件包含完整的写作指令。
 
-直接复制[最终版完整Prompt](FINAL_PROMPT_ZH.md)，补充当前材料和任务要求。文件包含连续写作流程及每个章节的具体要求，无需历史对话、私人资料或其他skill文件。
+## 它能帮助你做什么
 
-## 适用任务
+- **建立论证。** 找出主要贡献，明确各节增加了什么认识，将发现与研究问题连接起来。
+- **完成论文。** 撰写标题、摘要、引言、结果、讨论和方法，并按需处理图注、补充材料与投稿材料。
+- **精修成熟稿。** 改善含混的主张、重复的段落结构和不自然的衔接，保留已经有效的文字与作者决定。
+- **同步相关内容。** 核对章节、图表及所需译文之间的科学含义和引文支持关系。
 
-可以从完整研究材料起草全稿，也可以只处理摘要、引言、Discussion、图注、SI、引用或少分号。只读诊断保持只读，成熟稿不因调用本技能自动推倒重写。
+Discussion 的重点是解释实际观察到了什么、这些发现意味着什么，以及它们与具体研究怎样相接。有必要继续区分解释时，再提出相应的研究问题。段落的长短与详略随内容变化。
 
-完整写作模式区分材料充分、局部缺项、来源冲突和只有计划。材料充分就完成全部约定章节。材料不足则完成独立可写部分，明确哪些仍需事实，不把阶段稿冒称可投稿终稿。
+## 常用任务
 
-研究类型按输入调整，不把计算资源论文的结构套给临床、实验、预测、定性或综述研究。语言、图数、篇幅、双语及交付格式都服从本轮要求。
+定向精修：
 
-大型任务可使用`assets/`中的小型模板追踪证据、稿件组件与续接状态。简单编辑无需建立整套表。上游来源变化只触发相关段落、图注或摘要更新。
+```text
+请使用 $nc-manuscript-craft 修改这段 Discussion。
+把贡献和结果解释写得更清楚，保留现有结果与引用。
+已经有效的段落保持原文，并简要说明重要修改。
+```
 
-## 能力边界
+比较两个版本：
 
-这是指令技能，没有独立模型、API服务或数据库。所在环境支持文件、网络、Word渲染及独立代理时才能执行对应操作。无相应工具时仍可交完整文本，并如实标明未完成的文件或检查。
+```text
+请使用 $nc-manuscript-craft 比较这两个版本。
+判断哪些段落更好地解释了发现，哪些更清楚地表达了贡献。
+提出结合两版长处的局部修订方案。
+```
 
-它不会凭空新增数据、机制、研究经历、引文或伦理信息，不会估算AI检测率或录用概率，也不会自动投稿或上传材料。论文作者仍需核对内容与科学判断。
+双语同步：
 
-## 文件与验证
+```text
+请使用 $nc-manuscript-craft 同步这些修订段落的中英文版本。
+用自然的表达保留同一研究对象、条件、数量和引用作用。
+```
 
-- [技能入口](skills/nc-manuscript-craft/SKILL.md)
-- [独立完整Prompt](FINAL_PROMPT_ZH.md)
-- [范围与补全说明](docs/SCOPE_AND_IMPROVEMENTS.md)
-- [实际测试范围](docs/EVALUATION.md)
-- [来源与许可说明](THIRD_PARTY_NOTICES.md)
+## 准备哪些材料
 
-在仓库根目录运行`python scripts/validate.py`可进行结构、链接及明显私人信息模式检查。行为测试使用合成教学资料，只证明所列场景中观察到的行为，不保证所有稿件都无误。
+提供当前稿件或已完成结果、相关图表和方法，以及需要保留的作者判断。技能会根据研究类型与本轮范围组织写作，持续区分研究结果、结果解释与未来计划的证据身份。
 
-本仓库采用[MIT许可](LICENSE)。未包含私人会话、未发表手稿、原项目数值、账号资料或上游未获许可的提示词文件。使用方式参考[官方技能文档](https://learn.chatgpt.com/docs/build-skills)。
+长篇任务可以使用配套模板记录来源和未完成章节，便于接续工作。需要 Word、PDF 等文件时，调用所在环境提供的工具生成和检查。详细流程见[完整写作](skills/nc-manuscript-craft/references/19-complete-manuscript-workflow.md)与[交付指南](skills/nc-manuscript-craft/references/12-review-delivery.md)。
+
+## 按需深入
+
+- [论证主线与定位](skills/nc-manuscript-craft/references/01-argument-and-positioning.md)
+- [Discussion 与结尾](skills/nc-manuscript-craft/references/05-discussion-conclusion.md)
+- [作者声音与精确表达](skills/nc-manuscript-craft/references/11-voice-precision.md)
+- [全部章节指南](skills/nc-manuscript-craft/references/)
+
+维护技能时，可使用 Python 3.10 或以上版本运行 `python scripts/validate.py`。[测试说明](docs/EVALUATION.md)记录具体检查范围及用于评估技能的写作任务。
+
+## 许可
+
+本仓库采用 [MIT 许可](LICENSE)。项目参考来源及相关许可见[第三方说明](THIRD_PARTY_NOTICES.md)。

@@ -1,13 +1,13 @@
 ---
 name: nc-manuscript-craft
-description: Write complete evidence-led research manuscripts from supplied study materials, or precisely revise mature drafts. Use for full-paper drafting, scientific argument, section writing, citations, legends, supplementary text and requested bilingual synchronization. Preserve scientific meaning and author decisions. Does not silently perform new analyses or predict AI-detector scores or journal acceptance.
+description: Write complete evidence-led manuscripts from study materials and refine mature drafts with targeted revisions. Use for scientific argument, section writing, reviewer-informed editing, citations, figure legends, supplementary text, submission preparation and requested bilingual synchronization. Connect each claim to its evidence while preserving author decisions and scientific meaning.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # NC Manuscript Craft
 
-从真实研究材料完成论证、写作和交付，也支持成熟稿的定向精修。默认使用清楚、贡献导向的学术表达，少用分号，保护证据与作者声音。名称中的NC说明写作取向，不限制学科，也不承诺某期刊接收。
+从真实研究材料完成论证、写作和交付，也支持成熟稿的定向精修。默认使用清楚、贡献导向的学术表达，少用分号，保护证据与作者声音。覆盖从材料成稿到投稿文件整理，按研究类型和当前目标选择工作深度。
 
 ## 任务与完成约定
 
@@ -18,7 +18,7 @@ metadata:
 | 写完整论文/从材料成稿 | 读取 [完整写作流程](references/19-complete-manuscript-workflow.md)，建立所需交付项，从材料到全部有证据支持的章节。提纲是中间步骤，不作为完成 |
 | 建主线/规划框架 | 只完成规划，除非作者同时授权起草 |
 | 写某章节 | 读取对应模块并完成该节，核对关联接口 |
-| 精修成熟稿 | 以当前基线作最小必要修改，保留有效结构与作者删改 |
+| 精修成熟稿/处理外部意见 | 对当前原稿核实问题，再作最小必要修改，保留有效结构与作者删改 |
 | 双语/翻译 | 仅按请求同步语言，核查条件与证据身份 |
 | 只读诊断 | 提供可定位问题与建议，不覆盖文件 |
 | 文件交付 | 实际生成约定文件并执行可用检查，如实列未验证项 |
@@ -38,7 +38,7 @@ metadata:
 7. 尽量少用中英文分号。检查英文完整句、逗号拼接、变量大小写、统计归属及联合引文。技术字段和复杂分组可保留必要分隔。
 8. 经明确授权可分层显示工程参数，SI保留精确值、单位和定位。统计结果、阈值、区间和公式不随意取整。
 9. 文献支持具体命题。近年优先不排除方法、数据和直接先例原文。学习范文的论证动作，不复制事实、经历或结论强度。
-10. 图注帮助读图，信息完整但不强制同序。主文与SI执行同样的写作标准，按本次范围同步相关副本。
+10. 图注按面板实际对象说明，区分示意、描述与推断。主文与SI同步，删重复内容前转存其独有定义和复现信息。
 11. 只报告实际执行过的阅读、检索、独立审查、文件生成和渲染。工具受限时完成可做部分并准确标明状态。
 12. 不编造AI检测分数、录用概率或政策认证。声明与实际使用一致。写作不自动授权新增分析、投稿、公开上传或联系他人。
 
@@ -77,8 +77,10 @@ metadata:
 
 论文正文与编辑说明分开。不要将“所提供材料”等来源旁白或未完成检索、渲染、登记号等发表准备事项塞入Results。必要的观察设计、测量身份及科学局限仍准确保留。
 
+先在当前编辑源核实外部意见。文字抽取、公式结构和最终页面分别核对，未复现的问题保留原文并说明。方法冲突回到已执行代码、配置和结果，不能从工具默认值推定。
+
 逐项检查主张、方法、图表、图注、正文、SI、引用与要求语言的对应。源材料更新时只重新核查其依赖项。原文—改文—理由可使用 [修改记录](assets/change-record.csv)，不强制所有任务输出大表。
 
-最终给出真实成品与简短取舍说明。没有关键结果时交支持范围内的阶段稿，明确缺口，不能冒称可投稿最终稿。需要DOCX/PDF时使用当前工具生成并检查，不能把文本稿叫成已渲染文档。真实tracked接受对应clean、拒绝对应约定基线，公式保持原生结构。没有独立代理时可分轮自检，但准确命名。
+最终给出真实成品与简短取舍说明。没有关键结果时交支持范围内的阶段稿，明确缺口，不能冒称可投稿最终稿。需要DOCX/PDF时使用当前工具生成并检查，不能把文本稿叫成已渲染文档。阅读整包与正式上传文件按用途分别组织，图形摘要的位置依本次目标期刊和作者选择确定。真实tracked接受对应clean、拒绝对应约定基线，公式保持原生结构。没有独立代理时可分轮自检，但准确命名。
 
 按文章类型完成约定组件、关闭必须修复项或明确其影响、无新的实质漂移后停止。不为进一步降低模板感无限改写。

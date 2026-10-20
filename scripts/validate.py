@@ -11,7 +11,7 @@ import sys
 def validate(root: Path) -> dict:
     skill = root / 'skills' / 'nc-manuscript-craft'
     errors = []
-    required = ['README.md', 'README.zh-CN.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md',
+    required = ['README.md', 'README.zh-CN.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'CHANGELOG.md',
                 'FINAL_PROMPT_ZH.md', 'docs/EVALUATION.md', 'docs/SCOPE_AND_IMPROVEMENTS.md',
                 'skills/nc-manuscript-craft/SKILL.md',
                 'skills/nc-manuscript-craft/agents/openai.yaml',
@@ -23,6 +23,7 @@ def validate(root: Path) -> dict:
     if errors:
         return {'status': 'FAIL', 'errors': errors}
     entry = (skill / 'SKILL.md').read_text(encoding='utf-8')
+    version = None
     front = re.match(r'\A---\r?\n(.*?)\r?\n---\r?\n', entry, re.S)
     if not front:
         errors.append('SKILL.md has no YAML frontmatter')
@@ -33,6 +34,18 @@ def validate(root: Path) -> dict:
                 errors.append(f'Missing skill field: {field}')
         if not re.search(r'^name:\s*nc-manuscript-craft\s*$', front[1], re.M):
             errors.append('Skill name and directory differ')
+        version_match = re.search(r'^  version:\s*"(\d+\.\d+\.\d+)"\s*$', front[1], re.M)
+        if not version_match:
+            errors.append('Missing semantic version in skill metadata')
+        else:
+            version = version_match[1]
+            changelog = (root / 'CHANGELOG.md').read_text(encoding='utf-8')
+            latest = re.search(r'^## (\d+\.\d+\.\d+)\b', changelog, re.M)
+            if not latest or latest[1] != version:
+                errors.append('Skill version and latest changelog entry differ')
+            prompt = (root / 'FINAL_PROMPT_ZH.md').read_text(encoding='utf-8')
+            if not re.search(rf'^版本：{re.escape(version)}\s*$', prompt, re.M):
+                errors.append('Standalone prompt version differs from skill metadata')
     ui = (skill / 'agents/openai.yaml').read_text(encoding='utf-8')
     if '$nc-manuscript-craft' not in ui:
         errors.append('UI default prompt does not name the skill')
@@ -87,7 +100,7 @@ def validate(root: Path) -> dict:
     language = (skill / 'assets/task-brief.yaml').read_text(encoding='utf-8')
     if 'output_language: infer_from_request' not in language:
         errors.append('Task brief forces a language instead of inferring the request')
-    return {'status': 'FAIL' if errors else 'PASS', 'reference_modules': len(references),
+    return {'status': 'FAIL' if errors else 'PASS', 'version': version, 'reference_modules': len(references),
             'numbered_prompts': len(prompt_ids), 'standalone_characters': len((root / 'FINAL_PROMPT_ZH.md').read_text(encoding='utf-8')),
             'text_files_checked': len(docs), 'local_links_checked': local_links,
             'errors': errors, 'limitations': ['No scientific or semantic correctness proof',

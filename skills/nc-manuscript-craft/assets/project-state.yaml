@@ -9,6 +9,9 @@ task:
   target_journal_full_name: null
   language: infer_from_request
   requested_formats: []
+  delivery_purpose: infer_from_request
+  submission_stage: not_requested
+  requirements_source_and_checked_date: null
   editable_scope: []
   protected_items: []
   author_decisions: []

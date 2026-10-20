@@ -1,31 +1,40 @@
-# Evaluation scope and observed results
+# Evaluation
 
-The initial public package was evaluated on 16 October 2026 using three synthetic teaching scenarios and four independent executions. These checks assess observable drafting behavior, not journal acceptance, AI-detector scores or correctness on every future manuscript.
+Version 1.1.0 was evaluated on 20 October 2026 with four writing scenarios and five independent executions. Each agent received the specified synthetic material and either the installable skill or the standalone prompt in a fresh context. Agents were not given expected answers, previous outputs or the private development history. The maintainer read the completed outputs against the supplied evidence.
 
-## Behavioral checks
+## v1.1.0 writing tasks
 
-Each evaluator received one scenario and either the standalone prompt alone or the installable skill. Evaluators used a fresh task context and were not given the intended answer, previous outputs or suspected failure. The maintainer inspected the resulting text rather than relying only on an evaluator's self-report.
-
-| Scenario | Input and execution | Observed outcome |
+| Scenario | Execution | Observed outcome |
 |---|---|---|
-| [Complete paper](../tests/scenarios/01-complete-paper.md) | Standalone prompt only, supplied synthetic monitoring results and one software reference. Executed twice in separate contexts | Both runs produced a full English teaching manuscript with abstract, Introduction, Results, Discussion, Methods, supplementary methods, reference and two figure legends. The final run preserved the supplied counts, means and difference without inventing inferential statistics or deployment efficacy |
-| [Missing results](../tests/scenarios/02-missing-results.md) | Skill plus a planned experiment and an expected effect, with no observed results | Produced a clearly incomplete, prospective draft and specific author queries. Did not turn the expected effect into a finding or invent replicates, statistical tests, p values or citations |
-| [Resume after a source update](../tests/scenarios/03-resume-source-update.md) | Skill plus an existing draft, protected passages and a revised authoritative source | Updated the four dependent components: abstract, Results, table and legend. Preserved unrelated counts, the other mean, citation numbering and protected Introduction/Methods text. Recorded the revised source and continuation state |
+| [Complete paper](../tests/scenarios/01-complete-paper.md) | Standalone prompt only | Produced the full English teaching manuscript, both legends, Supplementary Methods and the supplied software reference. Preserved the four spatial units, repeated observations, missing records, means and descriptive difference. Kept unresolved publication items in a separate note. |
+| [Review against source](../tests/scenarios/04-review-against-source.md) | Skill, then standalone prompt in a separate context | Both runs retained the correct source title and left rendering unverified. They explained ddof through its variance divisor, corrected the selection description and retained the paired interval. Intervals were assigned to the statistical panel and F1 identified from the plotted field. The selected records and two panel populations remained distinct. |
+| [Methods and SI consolidation](../tests/scenarios/05-methods-and-si-consolidation.md) | Skill and relevant modules | Recovered the executed weighted-error objective, lower-threshold tie rule, threshold and probability medians, and inclusive classification boundary. Preserved eligibility, exclusion timing and evaluation after aggregation while consolidating the duplicate sections. |
+| [Resource Discussion and delivery](../tests/scenarios/06-resource-discussion-and-delivery.md) | Skill and relevant modules | Wrote a 352-word Discussion linking observations to resource use and interpretation. Retained comparison uncertainty and coverage loss. Followed the fictional journal's required separate graphical abstract, selected individual main figures and identified the combined SI as still needing assembly. |
 
-The first complete-paper run included unnecessary source-material narration and publication-preparation gaps inside Results. This led to a focused clarification separating manuscript prose from author notes. A second standalone-only execution improved this separation and completed the requested manuscript. Ordinary editorial judgment is still needed: for example, a prototype's absent usability evaluation could be moved from Results to limitations depending on the article's purpose. No further rewrite was required to satisfy the scientific-preservation and full-delivery criteria tested here.
+The complete-paper output contains 1,199 whitespace-delimited tokens after removing Markdown heading markers, including headings and notes. Its abstract contains 129 words. The manuscript fulfilled the requested content scope. Some repeated scope statements remain candidates for ordinary author editing. The run demonstrates complete drafting and scientific preservation while leaving sentence-level editorial judgment to the author.
 
-The final complete-paper draft contained 1,154 whitespace-delimited tokens including headings and notes, with a 130-word abstract. Length is reported to make the observed output concrete, not as a manuscript-length target. The fixtures intentionally describe a small teaching study and do not test a publication-length biomedical manuscript.
+All four scenarios completed on their first execution. Independent package review then found an ambiguous instruction that could suggest using the same denominator across different populations. The instruction was clarified to preserve each population's actual denominator. A fresh standalone-only execution of the review scenario retained the 24 selected records, 140 eligible participants and 90 held-out records separately. All completed outputs were preserved for inspection. No task reran scientific models or supplied invented performance statistics. The file-selection task used inventory descriptions and reported that actual files had not been inspected or generated.
 
-## Package checks
+## v1.0.0 baseline
 
-`python scripts/validate.py` checks required files, metadata, routed references, local links, prompt-copy synchronization, installable license copies, CSV structure and several obvious private-information patterns. The official skill-creator validator separately checks the skill entry's format. These checks do not prove scientific meaning or discover every possible confidential detail.
+The initial release was evaluated on 16 October 2026 using three synthetic scenarios and four independent executions.
 
-Release verification also installs the committed skill subtree from GitHub using the official skill-installer and compares its files with the release source. This checks distribution and packaging rather than manuscript quality. The repository's CI reruns the structural validator on pushes and pull requests.
+| Scenario | Observed outcome |
+|---|---|
+| [Complete paper](../tests/scenarios/01-complete-paper.md), two executions | Both produced all requested sections. The first included unnecessary source-material narration and publication-preparation gaps inside Results. A focused clarification separated manuscript prose from author notes, and a new standalone-only execution improved that separation while retaining the study definitions and numbers. |
+| [Missing results](../tests/scenarios/02-missing-results.md) | Produced a prospective, incomplete draft with specific evidence queries. The expected effect was not converted into an observed finding. |
+| [Resume after source update](../tests/scenarios/03-resume-source-update.md) | Updated the four dependent components and retained protected Introduction/Methods passages, other counts and citation identity. Recorded the revised source and continuation state. |
 
-## Limits
+The missing-results and source-update scenarios were not rerun for v1.1.0. Across both releases, the record contains six distinct scenarios and nine independent executions.
 
-- Three scenarios cannot establish general reliability across disciplines, languages, study designs or long projects.
-- The behavioral fixtures do not exercise Word rendering, tracked changes, editable SVG reconstruction, real database access, reference searches or manuscript submission. Instructions for those tasks are not equivalent to successful execution.
-- The supplied software reference was checked during fixture preparation. The evaluation agent did not independently verify it through a live literature search.
-- All example research details are synthetic. Private development conversations, unpublished research files and raw evaluation workspaces are excluded from this repository.
-- Review the actual manuscript, data and declarations before use. Neither passing checks nor polished prose certifies submission readiness.
+## Package and distribution checks
+
+`python scripts/validate.py` checks required files, metadata, release-version agreement, module routes, local links, prompt-copy synchronization, installable license copies, CSV structure and common private-information patterns. For v1.1.0, the validator passed on the reviewed package and correctly rejected temporary copies with mismatched release versions or unsynchronized prompts. The official skill-creator format validator also passed.
+
+Public-content review examines the instructions and examples separately from these mechanical checks. GitHub Actions reruns the structural validator on pushes and pull requests. Release verification installs the committed skill subtree using the official installer and compares file hashes with the release source.
+
+## Coverage
+
+The scenarios exercise text drafting, editorial decisions, method recovery, consolidation and file-purpose mapping using supplied material. They do not exercise Word rendering, tracked changes, SVG editing, live literature retrieval or journal submission. The small teaching manuscript also does not test a publication-length project. The supplied software reference was verified when its fixture was prepared, not through a literature search by the evaluation agent.
+
+Synthetic fixtures are public so these tasks can be repeated. Private study materials and raw evaluation workspaces remain outside the repository. Review outcomes for a new manuscript depend on its actual evidence, author decisions and requested work.

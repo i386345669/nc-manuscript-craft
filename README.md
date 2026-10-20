@@ -1,84 +1,82 @@
 # NC Manuscript Craft
 
-[中文使用说明](README.zh-CN.md) · [Complete standalone writing prompt](FINAL_PROMPT_ZH.md) · [Skill entry](skills/nc-manuscript-craft/SKILL.md)
+v1.1.0
 
-An evidence-led writing workflow for complete research manuscripts and precise revision of mature drafts. It makes scientific questions, evidence, interpretation and practical contributions readable while preserving author decisions and technical meaning.
+[中文说明](README.zh-CN.md) · [Complete writing prompt](FINAL_PROMPT_ZH.md) · [Skill entry](skills/nc-manuscript-craft/SKILL.md)
 
-The detailed instructions are in Chinese. Manuscript output follows the requested language. The workflow is oriented toward clear Nature Communications-style writing, but is neither affiliated with a journal nor a promise of acceptance.
+NC Manuscript Craft is a writing skill for research papers. It helps you develop a central argument, write each section from your study materials, and refine mature drafts while keeping the science and the author's voice intact.
 
-## Two ways to use it
+Use it for a complete manuscript, a section that needs clearer interpretation, or revisions that need to stay consistent across the main text, legends and supplementary material. The instructions are in Chinese. Choose the manuscript language in your request.
 
-### Install as a Codex skill
+## Start writing
 
-Ask Codex:
+Ask Codex to install the skill:
 
 ```text
 $skill-installer
-Install the skill from https://github.com/i386345669/nc-manuscript-craft/tree/main/skills/nc-manuscript-craft
+Install https://github.com/i386345669/nc-manuscript-craft/tree/main/skills/nc-manuscript-craft
 ```
 
-Then invoke it in a new turn:
+In a new turn, provide your materials and describe the writing task:
 
 ```text
-Use $nc-manuscript-craft to write a complete English research manuscript from the supplied results, methods, figures and verified references. Continue through all supported sections and final consistency checks. Preserve scientific meaning and identify any genuine evidence gaps.
+Use $nc-manuscript-craft to write an English research manuscript from these results, methods, figures and references.
+Develop the central argument and complete the sections supported by the materials.
+Keep the study's definitions, results and citations accurate, and list any missing facts separately.
+Materials: [files or text]
 ```
 
-The installable path is `skills/nc-manuscript-craft`, not the repository root. If a skill with the same name is already installed, back it up and explicitly update it rather than silently overwriting. Use a version tag or commit in the GitHub URL when a fixed release is needed. For local installer script users, the equivalent arguments are `--repo i386345669/nc-manuscript-craft --path skills/nc-manuscript-craft --ref main`.
+You can also copy [FINAL_PROMPT_ZH.md](FINAL_PROMPT_ZH.md) into your assistant and add your materials. It contains the complete writing instructions in one file.
 
-The skill is instruction-only. It requires no API key or separate MCP service. File creation, browsing, rendering and independent agents depend on the host. Without those capabilities it delivers the supported text and accurately reports unavailable checks.
+## What it helps with
 
-### Copy a single Markdown prompt
+- **Build the argument.** Identify the main contribution, decide what each section adds, and connect findings to the research question.
+- **Write the paper.** Develop the title, abstract, introduction, results, discussion and methods, with support for legends, supplementary text and submission materials when requested.
+- **Refine a mature draft.** Improve unclear claims, repetitive paragraph patterns and awkward transitions while preserving effective passages and author decisions.
+- **Keep related text aligned.** Check scientific meaning and citation support across sections, figures, tables and requested translations.
 
-Copy [FINAL_PROMPT_ZH.md](FINAL_PROMPT_ZH.md), add the current project materials and specify the requested outputs. It is self-contained and does not require the installed skill, private history or other module files. A text-only assistant can use it to produce manuscript text.
-
-## What it covers
-
-- A full-manuscript mode with material-readiness branches and explicit completion status.
-- Argument, title, abstract, introduction, results, discussion and methods.
-- Study-specific handling for observational, experimental, prediction, methods, resource, qualitative and evidence-synthesis work.
-- Citation support, legends, supplementary text and requested language synchronization.
-- Less formulaic prose and fewer semicolons without losing conditions or citation scope.
-- Stable evidence IDs, cross-component dependencies and resumable state for large tasks.
-- Actual artifact checks, with clear distinctions between complete text, generated files and verified rendering.
-
-It does not invent data, mechanisms, research chronology, citations or declarations. It does not silently run new analyses, upload unpublished work or submit a paper. It does not estimate AI-detector percentages or journal acceptance probabilities.
+Discussion receives particular attention: what was observed, what it means, how it relates to specific earlier work, and which remaining question matters. Paragraphs can differ in length and emphasis because they have different jobs.
 
 ## Examples
 
-```text
-Use $nc-manuscript-craft. Revise only this Discussion for clearer interpretation and specific literature comparison. Keep the current argument, data and citations. Output English only and explain material changes briefly.
-```
+For a focused revision:
 
 ```text
-Use $nc-manuscript-craft. Audit the supplied results, methods and legends for inconsistent populations, denominators, units and citation support. This is a read-only task.
+Use $nc-manuscript-craft to revise this Discussion.
+Make the contribution and interpretation clearer, and retain the current results and citations.
+Keep paragraphs that already work. Explain the important changes briefly.
 ```
+
+For a comparison before editing:
 
 ```text
-Use $nc-manuscript-craft. Resume from the project state file, check which sources changed and update only dependent manuscript components. Do not restart approved sections.
+Use $nc-manuscript-craft to compare these two drafts.
+Identify which passages better explain the findings and which better express the contribution.
+Recommend a focused revision that combines their strengths.
 ```
 
-## Repository layout
+For bilingual work:
 
 ```text
-FINAL_PROMPT_ZH.md                 Self-contained copyable prompt
-skills/nc-manuscript-craft/
-  SKILL.md                        Concise entry and task routing
-  agents/openai.yaml              Codex interface metadata
-  references/                     Detailed section and workflow instructions
-  assets/                         Optional evidence, state and delivery templates
-scripts/validate.py               Local structural and public-content checks
-tests/                            Synthetic behavioral fixtures and criteria
-docs/                             Scope, evaluation and release notes
+Use $nc-manuscript-craft to synchronize the English and Chinese versions of these revised sections.
+Preserve the same scientific objects, conditions, quantities and citation roles in natural prose.
 ```
 
-## Validation
+## Working with your materials
 
-Run `python scripts/validate.py` from the repository root with Python 3.10 or later. The check uses only the standard library. It checks local links, manifest fields, prompt synchronization, template structure and obvious private-path or credential patterns. Semantic behavior requires inspecting actual writing outputs. The public fixtures use invented teaching data and must not be treated as real studies.
+Provide the current draft or research results, relevant figures and methods, and any author decisions that should guide the work. The skill adapts the argument to the study type and the requested scope. Results, interpretations and proposed work retain their respective evidence status throughout editing.
 
-See [evaluation scope](docs/EVALUATION.md) for what was actually tested. Package checks and selected tasks do not guarantee error-free writing on every project.
+For longer projects, optional templates help track sources and resume unfinished sections. Requested Word, PDF or other file outputs use the tools available in the host environment. Details are in the [complete workflow](skills/nc-manuscript-craft/references/19-complete-manuscript-workflow.md) and [delivery guide](skills/nc-manuscript-craft/references/12-review-delivery.md).
 
-## Attribution and license
+## Explore the writing guidance
 
-Original material is released under the [MIT License](LICENSE). See [third-party attribution](THIRD_PARTY_NOTICES.md) for conceptual influences and applicable MIT notices. No upstream ARS or Leey prompt files are bundled. Links to other projects do not license their content under this repository's MIT terms.
+- [Argument and positioning](skills/nc-manuscript-craft/references/01-argument-and-positioning.md)
+- [Discussion and conclusions](skills/nc-manuscript-craft/references/05-discussion-conclusion.md)
+- [Voice and precise expression](skills/nc-manuscript-craft/references/11-voice-precision.md)
+- [All section guides](skills/nc-manuscript-craft/references/)
 
-Installation guidance was checked against [official skill documentation](https://learn.chatgpt.com/docs/build-skills). This repository is independent of OpenAI and the named journals.
+For package maintenance, run `python scripts/validate.py` with Python 3.10 or later. [Evaluation notes](docs/EVALUATION.md) describe the checks and writing tasks used to assess the skill.
+
+## License
+
+Released under the [MIT License](LICENSE). [Third-party notices](THIRD_PARTY_NOTICES.md) document the sources and licenses that informed the project.

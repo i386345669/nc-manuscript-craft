@@ -4,6 +4,9 @@ study_type: infer_from_materials
 current_baseline: unspecified
 target_journal_full_name: unspecified
 article_type: unspecified
+submission_stage: not_requested
+delivery_purpose: infer_from_request
+requirements_source_and_checked_date: null
 output_language: infer_from_request
 requested_artifact_formats: []
 central_question: unspecified

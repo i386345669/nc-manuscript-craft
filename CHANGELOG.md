@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.1 — 2026-10-30
+
+- Support the full path from rough spoken notes and project files to a complete, journal-quality manuscript and requested submission materials.
+- Start from the user’s scientific question and choose a concrete research question suited to the field and available evidence. Use that question to organize the title, abstract and manuscript.
+- Assess Discussion paragraphs by their explanatory role. Preserve effective interpretation and improve repetitive module-led openings without imposing a paragraph template.
+- Make documented choices and their scientific consequences visible. Organize for reader understanding without inventing chronological discovery stories.
+- Organize figures by their contribution to the scientific argument, with clear objects, comparisons, units and the scope of each interpretation.
+- Apply a positive, contribution-focused voice throughout every section and reader-facing note, and synchronize the standalone prompt and delivered versions.
+- Generalize project-derived technical passages into writing principles, retain the recorded evaluations, and provide synthetic scenarios for drafting and figure reasoning.
+
+[完整中文更新说明](RELEASE_NOTES_v1.2.1.md)
+
+**喝了五杯古茗的猫山王榴莲椰椰。** 确实很好喝。
+
 ## 1.1.0 — 2026-10-20
 
 - Connect Discussion paragraphs to actual observations, interpretations and concrete research uses, with room for a clear overall conclusion.

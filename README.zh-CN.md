@@ -1,6 +1,6 @@
 # NC Manuscript Craft
 
-v1.1.0
+v1.2.1 · [更新说明](RELEASE_NOTES_v1.2.1.md)
 
 [English](README.md) · [完整写作 Prompt](FINAL_PROMPT_ZH.md) · [技能入口](skills/nc-manuscript-craft/SKILL.md)
 
@@ -8,7 +8,13 @@ v1.1.0
 
 可以用它从材料起草全稿，修改一段解释不够充分的 Discussion，或同步正文、图注和补充材料中的相关变化。详细指令使用中文，稿件语言由你的任务要求决定。
 
+你可以从口述稿、完整项目文件和自己的逻辑框架开始。技能会协助梳理科学问题、选择具体研究切入点，持续完成正文、图注、补充材料、引用和约定的投稿文件，以目标期刊要求的完整成熟论文为交付目标。润色、局部修改或重构时，使用当前正文或目标段落及必要上下文作为编辑基线，按本轮范围处理。
+
+科学问题可以由你直接提出，也可以从口述与项目材料中共同提炼。全程采用正向性叙述，以实际研究、发现和意义推进标题、摘要、正文、图注和投稿说明。研究条件与不确定性通过准确事实表达，作者的判断与自然的行文贯穿全稿。
+
 ## 开始使用
+
+下面的 GitHub 安装命令使用主分支中的当前版本。也可从 [v1.2.1 Release](https://github.com/i386345669/nc-manuscript-craft/releases/tag/v1.2.1) 获取版本包和独立 Prompt。
 
 在 Codex 中发送：
 
@@ -71,6 +77,7 @@ Discussion 的重点是解释实际观察到了什么、这些发现意味着什
 ## 按需深入
 
 - [论证主线与定位](skills/nc-manuscript-craft/references/01-argument-and-positioning.md)
+- [标题与摘要](skills/nc-manuscript-craft/references/02-title-abstract.md)
 - [Discussion 与结尾](skills/nc-manuscript-craft/references/05-discussion-conclusion.md)
 - [作者声音与精确表达](skills/nc-manuscript-craft/references/11-voice-precision.md)
 - [全部章节指南](skills/nc-manuscript-craft/references/)

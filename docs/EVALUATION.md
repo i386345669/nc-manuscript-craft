@@ -1,5 +1,27 @@
 # Evaluation
 
+## v1.2.1
+
+The later generalization review extends the oral-notes-to-full-manuscript entry, applies positive narrative throughout, and replaces project-shaped technical instructions with cross-disciplinary writing guidance. Earlier evaluation records below keep their original snapshot identity.
+
+### Oral-notes drafting and final revision check
+
+After this review, a fresh independent agent used the revised skill with [spoken notes and a project fact file](../tests/scenarios/09-oral-notes-to-paper.md) from a fictional materials experiment. It produced a complete English teaching manuscript with all requested sections, the supplied reference, two figure legends and Supplementary Methods. It did not require an existing manuscript before drafting. The agent then performed a targeted editorial pass on that draft in the same context, retaining the first output and saving the revision separately.
+
+The maintainer read both outputs against the fixture. The final revision kept the specimen/observation distinction, endpoint counts, given means and difference, missing observations, exposure settings and reference identity. Discussion was reorganized around the observed contrast and specific follow-up questions, while Methods retained the relevant design facts. No new data analysis, browsing or graphics were performed. This is one independent drafting check followed by a same-context revision, not independent replication of a research result.
+
+The behavioral runs below preceded the author’s later wording and scope edits on 30 October. Those edits generalized the scientific-question entry point and withdrew the project-specific workflow-contribution guidance. The revised files received targeted author-scope review and structural checks; the earlier runs are retained as results of their recorded snapshot.
+
+On 30 October 2026, a separate evaluation agent in a fresh context completed three synthetic requests using the candidate skill: the existing complete-paper fixture and the two new resource-narrative and explanation-figure fixtures. The agent received the skill, supplied materials and output paths, without expected answers or the private development history. The three tasks were performed sequentially in that one independent context. The maintainer read all completed outputs against the supplied evidence.
+
+| Scenario | Observed outcome |
+|---|---|
+| [Complete paper](../tests/scenarios/01-complete-paper.md) | Produced the requested complete English teaching manuscript, both legends, Supplementary Methods and the supplied software reference. Preserved station versus observation units, missing records and descriptive means without inventing inference or deployment. |
+| [Resource narrative](../tests/scenarios/07-resource-narrative.md) | Produced the title, 112-word abstract, resource paragraph and requested four-paragraph Discussion. Preserved the useful assay interpretation and less favorable comparator. Reported the indexed-to-original timing ratio without treating it as a speedup. |
+| Explanation figures, historical synthetic snapshot | Produced a reasoned figure plan, Results and legend while preserving the provided measurement identities and interpretation scope. Detailed fixture and output hashes are retained in the private evaluation record. The current [general figure-role fixture](../tests/scenarios/08-explanation-figure-choice.md) replaces that technical scenario and has not been presented as the one used in the earlier run. |
+
+These are three small text tasks, not three independent replications or a numerical estimate of writing quality. They did not test publication-length work, new scientific analysis, graphics or Word rendering. All completed outputs and their hashes are retained in the private local evaluation record. Structural CI results are tracked separately in GitHub Actions. Historical behavioral results below remain results of their stated versions.
+
 Version 1.1.0 was evaluated on 20 October 2026 with four writing scenarios and five independent executions. Each agent received the specified synthetic material and either the installable skill or the standalone prompt in a fresh context. Agents were not given expected answers, previous outputs or the private development history. The maintainer read the completed outputs against the supplied evidence.
 
 ## v1.1.0 writing tasks

@@ -2,7 +2,15 @@
 
 NC Manuscript Craft supports complete drafting from study materials and targeted revision of mature manuscripts. The requested outcome determines how much work to do. Sufficient evidence supports a finished draft, while a local information gap affects only the sections that depend on it.
 
-## What v1.1.0 adds
+## What the v1.2.1 candidate adds
+
+The full drafting workflow still accepts project files, a rough author framework and spoken notes. New guidance primarily improves the choice of information and the relationship between sections: specific research choices in abstracts, research capabilities before software lists, and explanatory questions before repetitive module announcements in Discussion.
+
+There is no universal requirement to use question sentences, match or avoid a particular paragraph count, or place every explanation plot in the main text. Authors' choices remain evidence-bound. Figure decisions consider the information a panel adds to the central contribution while keeping its actual statistical and biological meaning clear.
+
+The candidate incorporates voice refinements that had already been used locally after v1.1.0, including contribution-forward wording and fewer artificial binary contrasts or rhetorical triads. These are preferences applied where useful, not quotas or detector-evasion techniques.
+
+## What v1.1.0 added
 
 | Situation | Writing decision |
 |---|---|
